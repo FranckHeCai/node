@@ -1,16 +1,15 @@
 import fs from 'node:fs'
 
 fs.readdir('.')
-.then((files)=>{
-    files.forEach(file=>{
-        console.log(file)
+  .then((files) => {
+    files.forEach(file => {
+      console.log(file)
     })
-})
-.catch(err => {
-    if(err){
-        console.error("Error when reading directory: ",err)
-        return
+  })
+  .catch(err => {
+    if (err) {
+      console.error('Error when reading directory: ', err)
     }
-})
+  })
 
-fs.stat("content")
+fs.stat('content')

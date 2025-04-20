@@ -1,0 +1,16 @@
+### get specific user
+GET http://localhost:3000/user/zuko
+
+### user home page
+GET http://localhost:3000
+
+### create user
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "username": "Distorsion",
+    "followers": "233",
+    "following": false  
+}
+

@@ -29,15 +29,26 @@ const processRequest = (req, res) => {
 
     case 'POST':
       switch (url) {
-        case '/user':
-          const body = ''
+        case '/user':{
+          let body = ''
+
+          // listen to data
+          req.on('data', chunk => {
+            body += chunk
+          })
+
+          req.on('end', () => {
+            const data = JSON.parse(body)
+            res.writeHead(201, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify(data))
+          })
           break
+        }
 
         default:
           res.statusCode = 400
           res.setHeaders('Content-Type', 'text/html; charset=utf-8')
-          res.end('404 Error fetching user')
-          break
+          return res.end('404 Error not found')
       }
       break
 
